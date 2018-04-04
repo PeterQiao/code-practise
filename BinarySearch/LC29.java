@@ -3,7 +3,10 @@ import org.junit.Test;
 
 /**
  * Divide two integers without using multiplication, division and mod operator.
- * IDEA: 30 / 3 = 10 => 1*2^3 + 1*2^2 + 0*2^1 + 0*1
+ * IDEA: 30 / 3 = 10 => 1*2^3 + 1*2^2 + 0*2^1 + 0*1, 
+ * 我们在循环中新建了一个tmp， 这个变量就是2*divisor, 4*divisor的逼近，这样找到小于dividend的最大的乘数，存为bit，说明当前的dividend大于bit*divisor
+ * 然后dividend减去这个值，进入下一轮循环，直到dividend小于divisor, bit也是以2的指数进行递增，因为最后的结果可以分解为二项式。
+ * 这里利用了二分搜索的思想，利用二分进行probe，非常巧妙。
  */
 public class LC29 {
 
